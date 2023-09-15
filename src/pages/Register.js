@@ -3,8 +3,8 @@ import addAvatar from "../img/addAvatar.png";
 
 export default function Register() {
   return (
-    <div className="container">
-      <div className="wrapper">
+    <div className="form-container">
+      <div className="form-wrapper">
         <span className="logo">ShitApp</span>
         <p className="title">Register</p>
         <form action="">

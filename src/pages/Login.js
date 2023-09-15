@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Login() {
   return (
-    <div className="container">
-      <div className="wrapper">
+    <div className="form-container">
+      <div className="form-wrapper">
         <span className="logo">ShitApp</span>
         <p className="title">Login</p>
         <form action="">
