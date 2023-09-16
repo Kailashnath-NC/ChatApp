@@ -53,9 +53,9 @@ form{
 }
 form input{
     padding: 15px;
-    font-size: 16px;
     /* border-radius: 5px; */
     border: none;
+    width: 250px;
     /* border-bottom: 1px solid #76a346; */
     border-bottom: 1px solid #a7bcff;
     &::placeholder{
@@ -86,7 +86,7 @@ form button{
     /* background-color: #98d05c; */
     background-color: #7b96ec;
     color: white;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     font-size: large;
     font-weight: bold;
     cursor: pointer;
@@ -95,7 +95,7 @@ form button{
 form+p{
     margin-top: 10px;
     margin-bottom: auto;
-    font-size: small;
+    font-size: 12px;
 }
 
 .home{
@@ -112,22 +112,20 @@ form+p{
     width: 65%;
     height: 80%;
     display: flex;
-    flex-direction: row;
     overflow: hidden;
 }
 
 .sidebar{
     flex: 1;
     background-color: #3e3c61;
-/* border-radius: 10px 0px 0px 10px; */
     border-right: none;
 }
 
 .navbar{
-    height: 50px;
+    height: 65px;
     background-color: #2f2d52;
     color: #ddddf7;
-    padding:  0px 10px;
+    padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -135,19 +133,22 @@ form+p{
 
 .navbar .logo{
     font-weight: bold;
+    font-size: large;
 }
 
 .profile{
     display: flex;
-    /* align-items: center; */
-    /* justify-content: center; */
     gap: 10px;
+}
+
+.profile span{
+    align-self: center;
 }
 
 .profile img{
     background-color: #ddddf7;
-    height: 24px;
-    width: 24px;
+    height: 28px;
+    width: 28px;
     border-radius: 50%;;
     object-fit: cover;
 }
@@ -162,18 +163,17 @@ form+p{
 }
 
 .search{
-    color: white;
     border-bottom: 1px gray solid;
 }
 .searchForm{
     padding: 10px;
 }
 .search input{
-    width: 100%;
+    /* width: 100%; */
     background-color: transparent;
     outline: none;
     border: none;
-    padding: 10px;
+    /* padding: 10px; */
     color: white;
     &::placeholder{
         color: lightgray;
@@ -182,12 +182,12 @@ form+p{
 
 .userchat{
     /* width: 40px; */
+    color:white;
+    /* font-size: 20px; */
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 10px;
-    font-size: 20px;
-    /* color:white;   already in .search*/
     cursor: pointer;
     &:hover{
         background-color: #2f2d52;
@@ -201,6 +201,39 @@ form+p{
     object-fit: cover;
 }
 
-.chats{
+.userChatInfo span{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.userChatInfo div{
+    font-size: 14px;
+    color: lightgray;
+}
+
+.chat{
     flex:2
+}
+
+.chatNavbar{
+    background-color: #5d5b8d;
+    height: 65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.chatNavbar span{
+    color:lightgray;
+    font-size: 20px;
+}
+
+.chatIcons{
+    display: flex;
+    gap: 10px;
+}
+.chatIcons img{
+
+    height: 28px;
 }
