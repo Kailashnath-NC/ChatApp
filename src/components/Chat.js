@@ -12,12 +12,13 @@ export default function Chat() {
     <div className="chat">
       <div className="chatNavbar">
         <span>
-          {chatData.user}&&
-          <img
-            className="recepientProfilePic"
-            src={chatData.user.photoURL}
-            alt=""
-          />
+          {JSON.stringify(chatData.user) !== JSON.stringify({}) && (
+            <img
+              className="recepientProfilePic"
+              src={chatData.user.photoURL}
+              alt=""
+            />
+          )}
           {chatData.user?.displayName}
         </span>
         <div className="chatIcons">
@@ -26,8 +27,14 @@ export default function Chat() {
           <img src={more} alt="" />
         </div>
       </div>
-      <Messages />
-      <Input />
+      {JSON.stringify(chatData.user) === JSON.stringify({}) ? (
+        <div className="noUserSelected">SELECT A USER TO CHAT</div>
+      ) : (
+        <>
+          <Messages />
+          <Input />
+        </>
+      )}
     </div>
   );
 }

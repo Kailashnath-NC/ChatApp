@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 // import attach from "../img/attach.png";
 import img from "../img/img.png";
 import { db, storage } from "../firebase";
@@ -20,6 +20,8 @@ export default function Input() {
   const imageRef = useRef(null);
   const { chatData } = useContext(ChatContext);
   const { currentUser } = useContext(AuthContext);
+
+  useEffect(() => setText(""), [chatData.user]);
 
   async function handleSend() {
     if (text || image) {
