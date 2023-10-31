@@ -42,7 +42,9 @@ export default function Search() {
     }
   }
   function handleKey(e) {
-    e.code === "Enter" && handleSearch();
+    if (e.code === "Enter" && searchedUsername !== currentUser.displayName) {
+      handleSearch();
+    }
   }
   // HANDLER FOR PARTIAL KEYWORD SEARCH
   // async function handlePartialSearch(e) {

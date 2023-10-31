@@ -1,15 +1,19 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
 html,
 body {
   /* background-color: #76a346; */
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
   /* background-color: #a7bcff; */
+  /* box-sizing: content-box; */
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
-
-/* *{
-    box-sizing: border-box;
-} */
 
 .warning {
   position: absolute;
@@ -97,12 +101,13 @@ label img {
 .form-wrapper button {
   padding: 10px;
   border: none;
-  /* border-radius: 10px; */
+  height: 45px;
+  border-radius: 4px;
   /* background-color: #98d05c; */
   background-color: #7b96ec;
   color: white;
   /* margin-top: 20px; */
-  font-size: large;
+  font-size: 20px;
   font-weight: bold;
   cursor: pointer;
 }
@@ -162,8 +167,8 @@ label img {
 
 .profile img {
   background-color: #ddddf7;
-  height: 28px;
-  width: 28px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -173,6 +178,8 @@ label img {
   border: none;
   color: #ddddf7;
   font-size: 10px;
+  height: 28px;
+  align-self: center;
   /* border-radius: 10px; */
   cursor: pointer;
 }
@@ -247,6 +254,19 @@ label img {
 .chatNavbar span {
   color: lightgray;
   font-size: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+
+.recepientProfilePic {
+  /* background-color: #ddddf7; */
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+
+  object-fit: cover;
 }
 
 .chatIcons {

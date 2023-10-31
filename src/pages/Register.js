@@ -5,6 +5,7 @@ import { auth, storage, db } from "../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 import { Link, useNavigate } from "react-router-dom";
+import { BounceLoader } from "react-spinners";
 
 //Password atleast 6 char long
 //invalid emails
@@ -13,6 +14,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function Register() {
   // const [err, setErr] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [warn, setWarn] = useState(false);
   const navigate = useNavigate();
 
@@ -27,6 +29,7 @@ export default function Register() {
   }
   async function handleSubmit(e) {
     e.preventDefault();
+    setLoading(true);
     const displayName = e.target[0].value;
     const email = e.target[1].value;
     const password = e.target[2].value;
@@ -66,12 +69,15 @@ export default function Register() {
             });
 
             await setDoc(doc(db, "userChats", response.user.uid), {});
+            setLoading(false);
             e.target.reset();
             navigate("/");
           });
         }
       );
     } catch (error) {
+      setWarn(true);
+      setLoading(false);
       warning();
       console.log(error);
     }
@@ -90,7 +96,18 @@ export default function Register() {
             <img src={addAvatar} alt="" />
             <span>Add an avatar</span>
           </label>
-          <button type="submit">Sign up</button>
+          <button type="submit">
+            {loading ? (
+              <BounceLoader
+                loading={loading}
+                color="white"
+                size={25}
+                cssOverride={{ margin: "0 auto" }}
+              />
+            ) : (
+              "Sign up"
+            )}
+          </button>
         </form>
         <p>
           You have an account? <Link to="/login">Login</Link>

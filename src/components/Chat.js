@@ -11,7 +11,15 @@ export default function Chat() {
   return (
     <div className="chat">
       <div className="chatNavbar">
-        <span>{chatData.user?.displayName}</span>
+        <span>
+          {chatData.user}&&
+          <img
+            className="recepientProfilePic"
+            src={chatData.user.photoURL}
+            alt=""
+          />
+          {chatData.user?.displayName}
+        </span>
         <div className="chatIcons">
           <img src={cam} alt="" />
           <img src={add} alt="" />
