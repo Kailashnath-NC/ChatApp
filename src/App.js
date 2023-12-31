@@ -31,9 +31,6 @@ function App() {
       </Routes>
     </BrowserRouter>
   );
-  // return <Register />;
-  // return <Login />;
-  // return <Home />;
 }
 
 export default App;

@@ -8,13 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { BounceLoader } from "react-spinners";
 import defaultIcon from "../img/user-fill.svg";
 
-//Password atleast 6 char long
-//invalid emails
-//missing password
-//invalid creds
-
 export default function Register() {
-  // const [err, setErr] = useState(false);
   const [loading, setLoading] = useState(false);
   const [warn, setWarn] = useState(false);
   const navigate = useNavigate();

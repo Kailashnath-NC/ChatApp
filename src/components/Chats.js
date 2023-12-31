@@ -19,7 +19,6 @@ export default function Chats() {
   }, [currentUser.uid]);
 
   function handleSelect(chat) {
-    // console.log(chat);
     dispatch({ type: "UPDATE CHAT", user: chat[1].userInfo });
   }
 

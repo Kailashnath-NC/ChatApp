@@ -8,10 +8,6 @@ import {
   setDoc,
   updateDoc,
   where,
-  // IMPORTS FOR PARTIAL SEARCH
-  // orderBy,
-  // startAt,
-  // endAt,
 } from "firebase/firestore";
 import React, { useContext, useState } from "react";
 import { db } from "../firebase";
@@ -29,11 +25,9 @@ export default function Search() {
       collection(db, "users"),
       where("displayName", "==", searchedUsername)
     );
-    //Try catch maynot be needed
     try {
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
-        // console.log(doc);
         setUser(doc.data());
       });
     } catch (e) {
@@ -46,22 +40,6 @@ export default function Search() {
       handleSearch();
     }
   }
-  // HANDLER FOR PARTIAL KEYWORD SEARCH
-  // async function handlePartialSearch(e) {
-  //   setSearchedUsername(e.target.value);
-
-  //   if (e.target.value.length > 0) {
-  //     const q = query(
-  //       collection(db, "users"),
-  //       orderBy("displayName"),
-  //       startAt(e.target.value)
-  //     );
-  //     const querySnapshot = await getDocs(q);
-  //     querySnapshot.forEach((doc) => {
-  //       console.log(doc.data());
-  //     });
-  //   }
-  // }
 
   async function handleSelect() {
     const combinedId =
@@ -72,7 +50,6 @@ export default function Search() {
     try {
       const res = await getDoc(doc(db, "chats", combinedId));
 
-      //update documents ONLY IF currentuser user have never texted each other
       if (!res.exists()) {
         await setDoc(doc(db, "chats", combinedId), { messages: [] });
 
@@ -100,9 +77,7 @@ export default function Search() {
     } catch (error) {
       console.log(error);
     }
-    // finally {
-    //   console.log("done");
-    // }
+
     dispatch({
       type: "UPDATE CHAT",
       user: {
@@ -122,8 +97,6 @@ export default function Search() {
           type="text"
           placeholder="Find a user"
           value={searchedUsername}
-          // ONCHANGE FOR PARTIALLY KEYWORD SEARCH
-          // onChange={handlePartialSearch}
           onChange={(e) => setSearchedUsername(e.target.value)}
           onKeyDown={handleKey}
         />

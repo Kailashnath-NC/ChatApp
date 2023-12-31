@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-// import attach from "../img/attach.png";
 import img from "../img/img.png";
 import { db, storage } from "../firebase";
 import {
@@ -26,7 +25,6 @@ export default function Input() {
   async function handleSend() {
     if (text || image) {
       const inputText = text;
-      console.log(inputText);
       setText("");
       if (image) {
         const storageRef = ref(storage, v4());
@@ -94,10 +92,6 @@ export default function Input() {
       />
 
       <div className="inputButtons">
-        {/* <input type="file" id="attachFile" />
-        <label htmlFor="attachFile">
-          <img src={attach} alt="" />
-        </label> */}
         <input
           type="file"
           id="addImage"
