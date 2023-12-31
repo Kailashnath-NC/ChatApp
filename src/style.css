@@ -319,14 +319,15 @@ label img {
 .messageContent {
   width: 80%;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   gap: 10px;
 }
 
 .message.owner .messageContent {
-  align-items: center;
-  justify-content: flex-end;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .messageContent div {
@@ -342,12 +343,17 @@ label img {
   max-width: 80%;
 }
 
-.messageContent img {
+.messageContent span {
   max-width: 50%;
 }
 
-.message.owner .messageContent img {
+.message.owner .messageContent span {
   width: 50%;
+}
+
+.messageContent span img {
+  width: 100%;
+  object-fit: cover;
 }
 
 .input {

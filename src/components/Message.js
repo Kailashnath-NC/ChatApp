@@ -38,7 +38,11 @@ export default function Message({ message }) {
       </div>
       <div className="messageContent">
         {message.text !== "" && <div>{message.text}</div>}
-        {message.img && <img src={message.img} alt="" />}
+        {message.img && (
+          <span>
+            <img src={message.img} alt="" />
+          </span>
+        )}
       </div>
     </div>
   );
