@@ -6,6 +6,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 import { Link, useNavigate } from "react-router-dom";
 import { BounceLoader } from "react-spinners";
+import defaultIcon from "../img/user-fill.svg";
 
 //Password atleast 6 char long
 //invalid emails
@@ -55,13 +56,13 @@ export default function Register() {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
             await updateProfile(response.user, {
               displayName,
-              photoURL: downloadURL,
+              photoURL: file ? downloadURL : defaultIcon,
             });
             await setDoc(doc(db, "users", response.user.uid), {
               uid: response.user.uid,
               displayName,
               email,
-              photoURL: downloadURL,
+              photoURL: file ? downloadURL : defaultIcon,
             }).catch((e) => {
               setWarn(true);
               warning();
